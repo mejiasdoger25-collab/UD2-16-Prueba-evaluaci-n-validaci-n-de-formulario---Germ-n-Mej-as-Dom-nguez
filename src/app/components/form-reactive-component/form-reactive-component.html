@@ -1,0 +1,215 @@
+<div class="container my-4 bg-warning" style="max-width: 600px;">
+    <form [formGroup]="profileForm" class="row">
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombre" formGroupName="nombre"
+                [class.is-invalid]="isInvalidField('nombre')"/>
+                @if (isInvalidField('nombre')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('nombre', 'required')) {
+                        El nombre es obligatorio
+                        } @else if (hasError('nombre', 'minlength')) {
+                        Mínimo 2 caracteres
+                        } @else if (hasError('nombre', 'maxlength')) {
+                        Máximo 30 caracteres
+                        } @else if (hasError('nombre', 'pattern')) {
+                        Solo se permiten letras
+                        }
+                    </div>
+                }
+        </div>
+
+        <div class="mb-3">
+            <label for="apellidos" class="form-label">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos" formGroupName="apellidos"
+                [class.is-invalid]="isInvalidField('apellidos')"/>
+                @if (isInvalidField('apellidos')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('apellidos', 'required')) {
+                        Los apellidos son obligatorios
+                        } @else if (hasError('apellidos', 'minlength')) {
+                        Mínimo 2 caracteres
+                        } @else if (hasError('apellidos', 'maxlength')) {
+                        Máximo 30 caracteres
+                        } @else if (hasError('apellidos', 'pattern')) {
+                        Solo se permiten letras
+                        }
+                    </div>
+                }
+                
+        </div>
+
+        <div class="mb-3">
+            <label for="tel" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="tel" formGroupName="tel"
+                [class.is-invalid]="isInvalidField('tel')"/>
+                @if (isInvalidField('tel')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('tel', 'required')) {
+                        El teléfono es obligatorio
+                        } @else if (hasError('tel', 'pattern')) {
+                        Introduce un teléfono español válido
+                        }
+                    </div>
+                }
+        </div>
+
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" class="form-control" id="email" formGroupName="email"
+                [class.is-invalid]="isInvalidField('email')"/>
+                @if (isInvalidField('email')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('email', 'required')) {
+                        El email es obligatorio
+                        } @else if (hasError('email', 'email')) {
+                        Formato de email no válido
+                        }
+                    </div>
+                }
+        </div>
+
+        <div class="mb-3">
+            <label for="nombreMascota" class="form-label">Nombre Mascota</label>
+            <input type="text" class="form-control" id="nombreMascota" formGroupName="nombreMascota"
+                [class.is-invalid]="isInvalidField('nombreMascota')"/>
+                @if (isInvalidField('nombreMascota')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('nombreMascota', 'required')) {
+                        El nombre de la mascota es obligatorio
+                        } @else if (hasError('nombreMascota', 'minlength')) {
+                        Mínimo 2 caracteres
+                        } @else if (hasError('nombreMascota', 'maxlength')) {
+                        Máximo 20 caracteres
+                        } @else if (hasError('nombreMascota', 'pattern')) {
+                        Solo letras, espacios y guiones
+                        }
+                    </div>
+                }
+        </div>
+
+        <div class="mb-3">
+            <label for="especie" class="form-label">Especie</label> 
+            <select class="form-select" id="especie" formControlName="especie"
+                [class.is-invalid]="isInvalidField('especie')">
+                <option value="" disabled>-Selecciona-</option>
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Ave">Ave</option>
+                <option value="Otro">Otro</option>
+            </select>
+            @if (isInvalidField('especie')) {
+            <div class="invalid-feedback">
+                Selecciona una especie
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="sexo" class="form-label">Sexo</label>
+            <input type="text" class="form-control" id="sexo" formGroupName="sexo">
+        </div><!--cambiar a tipo radio button-->
+
+        <div class="mb-3">
+            <label for="raza" class="form-label">Raza</label>
+            <input type="text" class="form-control" id="raza" formGroupName="raza"
+                [class.is-invalid]="isInvalidField('nombreMascota')"/>
+                @if (isInvalidField('raza')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('raza', 'minlength')) {
+                        Máximo 40 caracteres
+                        } 
+                    </div>
+                }
+        </div>
+
+        <div class="mb-3">
+            <label for="edad" class="form-label">Edad</label>
+            <input type="text" class="form-control" id="edad" formGroupName="edad"
+                [class.is-invalid]="isInvalidField('edad')"/>
+                @if (isInvalidField('edad')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('edad', 'required')) {
+                        La edad obligatoria
+                        } @else if (hasError('edad', 'min')) {
+                        La edad debe estar entre 0 y 30 años
+                        } @else if (hasError('edad', 'max')) {
+                        La edad debe estar entre 0 y 30 años
+                        }
+                    </div>
+                }
+        </div>
+
+        <div class="mb-3">
+            <label for="peso" class="form-label">Peso</label>
+            <input type="text" class="form-control" id="peso" formGroupName="peso"
+                [class.is-invalid]="isInvalidField('edad')"/>
+                @if (isInvalidField('peso')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('peso', 'required')) {
+                        El peso es obligatorio
+                        } @else if (hasError('peso', 'min')) {
+                        El peso debe estar entre 0,1 y 90 kg
+                        } @else if (hasError('peso', 'max')) {
+                        El peso debe estar entre 0,1 y 90 kg
+                        }
+                    </div>
+                }
+                
+                
+        </div>
+
+        <div class="mb-3">
+            <label for="numMicrochip" class="form-label">Número de microchip</label>
+            <input type="text" class="form-control" id="numMicrochip" formGroupName="numMicrochip"
+                [class.is-invalid]="isInvalidField('edad')"/>
+                @if (isInvalidField('numMicrochip')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('numMicrochip', 'required')) {
+                        El microchip es obligatorio
+                        } @else if (hasError('numMicrochip', 'pattern')) {
+                        El microchip debe tener exactamente 15 dígitos numéricos
+                        }
+                    </div>
+                }
+        </div>
+
+        <div class="mb-3">
+            <label for="contrasena" class="form-label">Contraseña</label>
+            <input type="text" class="form-control" id="contrasena" formGroupName="contrasena"
+                [class.is-invalid]="isInvalidField('contrasena')"/>
+                @if (isInvalidField('contrasena')) {
+                    <div class="invalid-feedback">
+                        @if (hasError('contrasena', 'required')) {
+                        El microchip es obligatorio
+                        } @else if (hasError('contrasena', 'pattern')) {
+                        El microchip debe tener exactamente 15 dígitos numéricos
+                        }
+                    </div>
+                }
+        </div>
+
+        <div class="mb-3">
+            <label for="motivoVisita" class="form-label">Motivo de la visita</label>
+            <input type="text" class="form-control" id="motivoVisita" formGroupName="motivoVisita"> <!--cambiar input a tipo textarea-->
+            <textarea></textarea>
+            <!--errores-->
+            
+                
+        </div>
+
+        <div class="mb-3">
+            <label for="politicaPrivacidad" class="form-label">Politica Privacidad</label>
+            <input type="text" class="form-control" id="politicaPrivacidad" formGroupName="politicaPrivacidad">
+        </div>
+
+        <div class="mb-3">
+            <label for="recordatorios" class="form-label">Recordatorios</label>
+            <input type="text" class="form-control" id="recordatorios" formGroupName="recordatorios">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button> <!--disabled con if-->
+    </form>
+
+    
+</div>
